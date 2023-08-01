@@ -1,4 +1,4 @@
-ChangeGUI()
+CallAllFunctions()
 
 const Rock = {
     Weakness: "Paper",
@@ -19,7 +19,7 @@ const Scissors = {
 let userChoice;
 let ComputerChoiceOBJ;
 
-function ChangeGUI() {
+function CallAllFunctions() {
     //Changes the GUI to display the vs mode.
 
     const btnRock = document.getElementById("Rock");
@@ -38,10 +38,32 @@ function ChangeGUI() {
 function ChangeDisplay(choice) {
     document.getElementById("starting-page").classList.add('d-none');
     document.getElementById("versus-page").classList.remove('d-none');
-    var imgUser = document.getElementById("winner")
 
 
 
+
+
+    DisplayMove(choice);
+    SelectWinner();
+}
+
+function SelectWinner() {
+    winner = ""
+    if (userChoice.Strength === ComputerChoiceOBJ.Weakness) {
+        winner = "user";
+    } else if (userChoice.Weakness === ComputerChoiceOBJ.Strength) {
+        winner = "computer";
+    }
+    else {
+        winner = "draw";
+    }
+}
+
+function DisplayMove(choice) {
+    var randomChoice = Math.floor(Math.random() * 3) + 1
+    var imgUser = document.getElementById("user")
+    var imgComputer = document.getElementById("computer")
+    console.log(randomChoice);
     switch(choice) {
         case 1:
             imgUser.src = 'img/rock.png'
@@ -58,34 +80,17 @@ function ChangeDisplay(choice) {
         default:
             console.log("Buttons have stopped working.");
     }
-
-    ComputerChoice();
-    SelectWinner();
-}
-
-function SelectWinner() {
-    winner = ""
-    if (userChoice.Strength === ComputerChoiceOBJ.Weakness) {
-        winner = "user";
-    } else if (userChoice.Weakness === ComputerChoiceOBJ.Strength) {
-        winner = "computer";
-    }
-    else {
-        winner = "draw";
-    }
-}
-
-function ComputerChoice() {
-    var randomChoice = Math.floor(Math.random() * 3) + 1
-    var imgLoser = document.getElementById('')
     switch(randomChoice) {
         case 1:
+            imgComputer.src = 'img/rock.png'
             ComputerChoiceOBJ = {...Rock};
             break;
         case 2:
+            imgComputer.src = 'img/paper.png'
             ComputerChoiceOBJ = {...Paper};
             break;
         case 3:
+            imgComputer.src = 'img/scissors.png'
             ComputerChoiceOBJ = {...Scissors};
             break;
         default:
