@@ -1,4 +1,4 @@
-CallAllFunctions()
+CallButtons()
 
 const Rock = {
     Name: "Rock",
@@ -22,7 +22,7 @@ const Scissors = {
 let userChoice;
 let ComputerChoiceOBJ;
 
-function CallAllFunctions() {
+function CallButtons() {
     //Changes the GUI to display the vs mode.
 
     const btnRock = document.getElementById("Rock");
@@ -41,7 +41,7 @@ function CallAllFunctions() {
     
 }
 function ChangeDisplay(choice) {
-    document.getElementById("starting-page").classList.add('d-none');
+    document.getElementById("starting").classList.add('d-none');
     document.getElementById("versus-page").classList.remove('d-none');
     document.getElementById("winner").classList.remove('d-none');
 

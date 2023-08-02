@@ -1,4 +1,3 @@
-
-img.starting-page:hover {
-    width: 80%;
+.custom-img:hover {
+    transform: scale(1.20);
 }
