@@ -1,3 +1,4 @@
+/*This stylesheet is only used for the hover effects as boot strap is built to make building responsive web applications easier for the user, and doesn't have alot of focus on animations.*/
 .custom-img:hover {
     transform: scale(1.20);
 }

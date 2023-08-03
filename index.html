@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--
+        Programmer: Marc Galvez
+        This program was made as a way to learn boot strap 5 and show case my skills with Java script.
+    -->
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors</title>
@@ -8,6 +14,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body class="bg-dark">
+    <!--
+        I learned grids, spacing, and how to hide elements
+    -->
     <div class="row row-cols-3">
         <div class="col col-4"></div>
         <div class="col col-4">
@@ -17,6 +26,7 @@
             <h2 class="text-end text-light pe-4">Score: <span id="score">0</span></h2>
         </div>
     </div>
+
     <div class="row row-cols-3 mt-5 ms-3 me-3 p-5 d-none" id="starting">
         <button class="btn col" id="Rock">
             <img src="img/Rock.png" alt="" class="img-fluid custom-img">
@@ -29,6 +39,7 @@
         </button>
 
     </div>
+    
     <div class="row row-cols-2 d-none" id="versus-page">
 
         <div class="col">
