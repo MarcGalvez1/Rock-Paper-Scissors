@@ -1,4 +1,25 @@
-CallButtons()
+var userScore = 0;
+const btnRock = document.getElementById("Rock");
+const btnPaper = document.getElementById("Paper");
+const btnScissors = document.getElementById("Scissors");
+const btnRetry = document.getElementById("Try-Again");
+
+btnRock.addEventListener("click", function() {
+    ChangeDisplay(1);
+});
+btnPaper.addEventListener("click", function() {
+   ChangeDisplay(2);
+});
+btnScissors.addEventListener("click",  function() {
+   ChangeDisplay(3);
+});
+btnRetry.addEventListener("click", function(){
+    StartingPage();
+}) 
+
+
+
+StartingPage();
 
 const Rock = {
     Name: "Rock",
@@ -22,28 +43,18 @@ const Scissors = {
 let userChoice;
 let ComputerChoiceOBJ;
 
-function CallButtons() {
-    //Changes the GUI to display the vs mode.
 
-    const btnRock = document.getElementById("Rock");
-    const btnPaper = document.getElementById("Paper");
-    const btnScissors = document.getElementById("Scissors")
-    btnRock.addEventListener("click", function() {
-        ChangeDisplay(1);
-    });
-    btnPaper.addEventListener("click", function() {
-       ChangeDisplay(2);
-    });
-    btnScissors.addEventListener("click",  function() {
-       ChangeDisplay(3);
-    });
+function StartingPage() {
 
-    
+    document.getElementById("starting").classList.remove('d-none');
+    document.getElementById("versus-page").classList.add('d-none');
+    document.getElementById("winner").classList.add('d-none');
+    document.getElementById("retry").classList.add('d-none');
 }
+
+
 function ChangeDisplay(choice) {
-    document.getElementById("starting").classList.add('d-none');
-    document.getElementById("versus-page").classList.remove('d-none');
-    document.getElementById("winner").classList.remove('d-none');
+    CallVersusPage();
 
     var randomChoice = Math.floor(Math.random() * 3) + 1;
     var imgUser = document.getElementById("user");
@@ -90,6 +101,7 @@ function ChangeDisplay(choice) {
     switch(winner) {
         case "user":
             winnerDisplay += 'Amazing you win!';
+
             break;
         case "computer":
             winnerDisplay += "You lost, Try again!";
@@ -102,28 +114,41 @@ function ChangeDisplay(choice) {
     }
     winnerDisplay += '</h1>';
     document.getElementById('winner').innerHTML = winnerDisplay;
+
+}
+
+function CallVersusPage() {
+    document.getElementById("starting").classList.add('d-none')
+    document.getElementById("versus-page").classList.remove('d-none');
+    document.getElementById("winner").classList.remove('d-none');
+    document.getElementById("retry").classList.remove('d-none');
 }
 
 function SelectWinner() {
-    var winner = ""
+    var winner = "";
+
     if (userChoice.Strength === ComputerChoiceOBJ.Name) {
+        // User wins
         winner = "user";
-        console.log("1st");
-    }
-    else if (userChoice.Weakness === ComputerChoiceOBJ.Name) {
+        console.log("win");
+        userScore += 1; // Increment userScore
+        document.getElementById('score').innerHTML = userScore; // Update user score on the UI
+        console.log(userScore);
+    } else if (userChoice.Weakness === ComputerChoiceOBJ.Name) {
+        // Computer wins
         winner = "computer";
-        console.log("2nd")
-    }
-    else if (userChoice.Draw  === ComputerChoiceOBJ.Name)  {
+        console.log("lose")
+    } else if (userChoice.Draw === ComputerChoiceOBJ.Name) {
+        // It's a draw
         winner = "draw";
-    }
-    else {
+    } else {
         console.log("Error")
     }
 
-    
     return winner;
 }
+
+
 
 
 
