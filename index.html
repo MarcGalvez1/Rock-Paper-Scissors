@@ -8,12 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body class="bg-dark">
-    <div class="row row-cols-1">
-        <div class="col">
+    <div class="row row-cols-3">
+        <div class="col col-4"></div>
+        <div class="col col-4">
             <h1 class="text-center text-light">Rock Paper Scissors</h1>
         </div>
-        <div class="col">
-            <h2 class="text-center text-light">Score: 0</h2>
+        <div class="col col-4">
+            <h2 class="text-end text-light pe-4">Score: 0</h2>
         </div>
     </div>
     <div class="row row-cols-3 mt-5 ms-3 me-3 p-5 " id="starting">
@@ -42,8 +43,8 @@
 
     <div class="row row-cols-1 d-none" id="winner"></div>
 
-    <div class="text-center" id="retry">
-        <button class=" btn btn-outline-success text-light text-center" id="Try-Again">Try Again!</button>
+    <div class="row row-cols-1 text-center d-none" id="retry">
+        <button class="d-grid col-3 mx-auto btn btn-lg btn-outline-success text-light text-center" id="Try-Again">Try Again!</button>
     </div>
 
 
